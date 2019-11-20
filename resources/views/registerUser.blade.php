@@ -33,6 +33,7 @@ h1{
     letter-spacing: 1px;
     margin: 20px 0;
     color: black;
+    text-align:center;
 }
 
 form{
@@ -40,6 +41,9 @@ form{
     background-color: white;
     padding: 30px 25px;
     border-radius: 5px;
+    
+    justify-content:center;
+    align-items:center;
 }
 
 form .input-block{
@@ -64,27 +68,27 @@ form .input-block input{
 }
 
 form .btn-login{
-    display: block;
+    display:block;
     min-width: 120px;
     border: none;
     background-color: #651fff;
     color: white;
-    border-radius: 25px;
-    margin: auto;
+    border-radius: 25px; 
     padding: 7px;
+    margin:auto;
 }
 
 form .btn-cancelar{
    
-    display: block;
+    
     min-width: 120px;
     border: none;
     background-color: #ff1744;
     color: white;
     border-radius: 25px;
-    margin: auto;
     padding: 7px;
-}
+    
+} 
 
 </style>
 
@@ -92,11 +96,16 @@ form .btn-cancelar{
 </head>
 <body>
 
-<section class="form-section">
+<section class="form-section ">
         <h1>Cadastrar Usuarios</h1>
-
+        
         <div class="form-wrapper">
-            <form action="/user/register" method="POST">
+            @if(Session('mensagem'))
+            <div class="alert alert-success">
+                {{Session('mensagem')}}
+            </div>
+            @endif 
+            <form action="/user/register" method="POST" enctype="multipart/form-data">
 
             <input type="hidden" name="_token" value="{{csrf_token()}}">
 
@@ -114,13 +123,19 @@ form .btn-cancelar{
                 </div>
                 <div class="input-block">
                     <label for="user-file">Upload</label>
-                    <input type="file" name="file">
+                    <input type="file" name="file" >
                 </div>
                 
                 <button type="submit" class="btn-login">Enviar</button>
+               
                   
             </form>
-        </div>
-    </section>
+            </div>
+            </section>
+
+
+
+
+
 </body>
 </html>

@@ -11,8 +11,8 @@ class userController extends Controller
         return view('registerUser');
     }
     public function index(){
-        $usuarios = User::orderBy('created-at', 'desc')->paginate(5);
-        return view('usuarios.index', ['usuarios' => $usuarios]);
+        $data['usuarios'] = User::all();
+        return view('listaUser', $data);
     }
 
     public function create(){
@@ -20,17 +20,22 @@ class userController extends Controller
     }
 
     public function store(Request $request){
+        $ext = $request->file('file')->getClientOriginalExtension();
         $user = new  User;
         //dd($request->all());
         //$user->create($request->all());
         $user->name = $request->name;
         $user->email = $request->email;
         $user->cpf = $request->cpf;
-        $user->file = $request->file;
+
+        $name = $user->name;
+        $nameFile = "{$name}.{$ext}";
+        $user->file = $request->file('file')->storeAs('uploads',$nameFile);
         $user->save();
 
-        $mensagem = "Produto Inserido com sucesso";
-        return view('showRegister')->with('messagem', $messagem);
+        $mensagem = "Usuario Inserido com sucesso";
+       
+        return redirect()->back()->with('mensagem', $mensagem);
     }
 
     public function show($id){

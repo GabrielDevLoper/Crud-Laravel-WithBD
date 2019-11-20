@@ -19,11 +19,11 @@ Route::get('/', function () {
 
 Route::get('/user/showregister', 'userController@showRegister');
 
-Route::get('user/list', 'userController@index');
+Route::get('/user/list', 'userController@index');
 Route::post('/user/register','userController@store');
-Route::put('user/update', 'userController@update');
-Route::delete('user/delete', 'userController@destroy');
-Route::get('user/{id}', 'userController@show')
+Route::put('/user/{id}/update', 'userController@update');
+Route::delete('/user/{id}/delete', 'userController@destroy');
+Route::get('/user/{id}', 'userController@show')
 
 
 ?>
