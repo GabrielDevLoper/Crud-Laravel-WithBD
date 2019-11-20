@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 Route::get('/user/showregister', 'userController@showRegister');
 
-Route::get('/user/list', 'userController@index');
+Route::get('/user/list', 'userController@index')->name('teste');
 Route::post('/user/register','userController@store');
 Route::put('/user/{id}/update', 'userController@update');
 Route::delete('/user/{id}/delete', 'userController@destroy');

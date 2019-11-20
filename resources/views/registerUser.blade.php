@@ -79,8 +79,6 @@ form .btn-login{
 }
 
 form .btn-cancelar{
-   
-    
     min-width: 120px;
     border: none;
     background-color: #ff1744;
@@ -88,14 +86,13 @@ form .btn-cancelar{
     border-radius: 25px;
     padding: 7px;
     
-} 
-
+}
 </style>
 
 
+<!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">-->
 </head>
 <body>
-
 <section class="form-section ">
         <h1>Cadastrar Usuarios</h1>
         
@@ -125,10 +122,7 @@ form .btn-cancelar{
                     <label for="user-file">Upload</label>
                     <input type="file" name="file" >
                 </div>
-                
                 <button type="submit" class="btn-login">Enviar</button>
-               
-                  
             </form>
             </div>
             </section>

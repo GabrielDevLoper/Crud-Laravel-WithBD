@@ -1,10 +1,10 @@
-@section('title', "Listagem de usuarios")
-@section('header')
-@endsection
+<title>Listagem de Usuarios</title>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
 <div class="row">
         <div class="col-lg-12">
-            <table class="table table-striped">
+            <table class="table table-striped table-bordered table-hover">
                 <thead>
                     <tr>
                         <th>Nome</th>
@@ -20,8 +20,8 @@
                         <td>{{$u->email}}</td>
                         <td>{{$u->cpf}}</td>
                         <td>
-                            <a href="/user/{{$u->id}}/update">Alterar</a>
-                            <form action="/user/{{$u->id}}" method="POST">
+                            <a href="/user/{$u->id}/update">Alterar</a>
+                            <form action="/user/{$u->id}/delete" method="POST">
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-sm btn-danger" >Excluir</button>
                             </form>
