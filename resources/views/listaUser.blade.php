@@ -21,7 +21,8 @@
                         <td>{{$u->cpf}}</td>
                         <td>
                             <a href="/user/{$u->id}/update">Alterar</a>
-                            <form action="/user/{$u->id}/delete" method="POST">
+                            <form action="{{route('delete',$u->id)}}" method="POST">
+                            <input type="hidden" name="_token" value="{{csrf_token()}}">
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-sm btn-danger" >Excluir</button>
                             </form>

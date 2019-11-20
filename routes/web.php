@@ -22,7 +22,7 @@ Route::get('/user/showregister', 'userController@showRegister');
 Route::get('/user/list', 'userController@index')->name('teste');
 Route::post('/user/register','userController@store');
 Route::put('/user/{id}/update', 'userController@update');
-Route::delete('/user/{id}/delete', 'userController@destroy');
+Route::delete('/user/{id}/delete', 'userController@destroy')->name('delete');
 Route::get('/user/{id}', 'userController@show')
 
 
